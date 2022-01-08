@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Chester Cheung">
+
+
+
+
+
+<title>6.828 ZhyOS在macOS下的环境配置-2020 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">hanyuancheung&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">hanyuancheung&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">6.828 ZhyOS在macOS下的环境配置-2020</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Chester Cheung</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 4, 2020&nbsp;&nbsp;18:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/OS/">OS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="6-828-ZhyOS在macOS下的环境配置-2020"><a href="#6-828-ZhyOS在macOS下的环境配置-2020" class="headerlink" title="6.828 ZhyOS在macOS下的环境配置-2020"></a>6.828 ZhyOS在macOS下的环境配置-2020</h2><blockquote>
+<p>本文主要介绍如何在macOS下配置mit 6.828 JOS的实验环境</p>
+</blockquote>
+<p>​    实习期做过一些业务之后，最直观的感受是做业务相对来说比较繁琐，每天疲于完成分配的需求，对个人成长来说不是特别大。和翔少一波交流后，还是想回归学校，利用余下不多的时间多打打基础，考虑抓抓基础以后往infrastructure方向发展。</p>
+<p>​    在进行JOS之前，在网上搜索关于JOS的开发环境，基本都是关于在ubuntu下的配置教程，很多博客和文章都提到<em>“不是32位linux就不好配置，会浪费大量时间在配置环境”</em>上之类的言论。奈何为囊中羞涩所困，在连续开了几个centOS后，本人OS X没有过多的存储资源可以使用，加上实在无法忍受开VMware恐怖的耗电量和发热量，尝试将开发环境移到<code>macOS</code>下。</p>
+<p>​    起初按照刘学长博客进行配置，但是出现一堆读不懂的error；简单碰壁后发现其实无比简单，在这里放上我的配置教程，过程非常简单可操作，希望能帮助到更多的coder完成这个项目。</p>
+<h3 id="1-Tools-we-need"><a href="#1-Tools-we-need" class="headerlink" title="1. Tools we need"></a>1. Tools we need</h3><p>配置环境之前，有两个工具是必须要进行配置的：</p>
+<ul>
+<li><p>Homebrew</p>
+</li>
+<li><p>Macports</p>
+<p>建议大家直接Google，按照官网公开的方法进行配置即可～(需要在管理员模式下进行，否则会遇到很多Permission Denied的报错，通常难以解决，本菜🐔也被困扰很久)</p>
+</li>
+</ul>
+<h3 id="2-运行JOS-demo"><a href="#2-运行JOS-demo" class="headerlink" title="2. 运行JOS demo"></a>2. 运行JOS demo</h3><ul>
+<li><p>QEMU</p>
+<p>在Homebrew工具下，直接利用brew即可安装i386-jos-elf-gcc和i386-jos-elf-gdb</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap liudangyi/i386-jos-elf-gcc //添加第三方库</span><br><span class="line">brew install i386-jos-elf-gcc i386-jos-elf-gdb</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>官网克隆源码</p>
+<p>从mit课程官网得到6.828的git地址，发现从2018年后就未更新，所以我们用2018的代码实现</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/6.828</span><br><span class="line">cd 6.828</span><br><span class="line">git clone https://pdos.csail.mit.edu/6.828/2018/jos.git lab</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>make jos的boot loader和kernel</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ./lab</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>成功后及显示</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+ as kern/entry.S</span><br><span class="line">+ cc kern/entrypgdir.c</span><br><span class="line">+ cc kern/init.c</span><br><span class="line">+ cc kern/console.c</span><br><span class="line">+ cc kern/monitor.c</span><br><span class="line">+ cc kern/printf.c</span><br><span class="line">+ cc kern/kdebug.c</span><br><span class="line">+ cc lib/printfmt.c</span><br><span class="line">+ cc lib/readline.c</span><br><span class="line">+ cc lib/string.c</span><br><span class="line">+ ld obj/kern/kernel</span><br><span class="line">i386-jos-elf-ld: warning: section `.bss&#x27; type changed to PROGBITS</span><br><span class="line">+ as boot/boot.S</span><br><span class="line">+ cc -Os boot/main.c</span><br><span class="line">+ ld boot/boot</span><br><span class="line">boot block is 382 bytes (max 510)</span><br><span class="line">+ mk obj/kern/kernel.img</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>启动JOS qemu</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make qemu</span><br></pre></td></tr></table></figure>
+
+<p>此时即可成功启动JOS，enjoy～</p>
+<h3 id="3-持续关注"><a href="#3-持续关注" class="headerlink" title="3. 持续关注"></a>3. 持续关注</h3><p>​    正值疫情老虎徘徊，再加上工作需求和学业压力，今天先完成了相关环境的配置，后续会继续进行OS的开发和学习，计划在一个月内完成这6个Lab，自己学习的过程中也帮助大家踩踩坑，祝大家都能早日拿到心仪的offer～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Chester Cheung</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2020/04/04/2020-04-4-JOS/">http://example.com/2020/04/04/2020-04-4-JOS/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/OS/"># OS</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/05/10/2020-5-10-TOGAF/">TOGAF企业架构体系</a>
+            
+            
+            <a class="next" rel="next" href="/2020/02/25/2020-2-25-pytest/">python实现常用测试模块</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Chester Cheung | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Chester Cheung">
+
+
+
+
+
+<title>API接口测试入门 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">hanyuancheung&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">hanyuancheung&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">API接口测试入门</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Chester Cheung</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">January 20, 2020&nbsp;&nbsp;20:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Test/">Test</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="API接口测试入门"><a href="#API接口测试入门" class="headerlink" title="API接口测试入门"></a>API接口测试入门</h2><blockquote>
+<p>API是Application Programming Interface的简写，我们又把接口测试叫做API测试，主要用于实现多个系统之间或系统内部模块之间的通信和数据交换的能力。</p>
+</blockquote>
+<h3 id="1-接口定义"><a href="#1-接口定义" class="headerlink" title="1.接口定义"></a>1.接口定义</h3><p>接口测试主要用于系统与系统之间以及内部各个子系统或模块之间的交互点。定义特定的交互点，然后通过这些交互点，以及一些特殊的规则也就是协议，来进行数据之间的交互。前后端之间配合工作，就是其中一方定义实现接口，另一方来调用接口，以实现预期功能。</p>
+<p>举个简单的例子，我们在开车踩油门时，并不需要知道油门内部的零线/火线以及具体的电路结构，因为汽车制造商已经将给油的一系列操作全部封装成了油门这样一个接口，用户只要傻瓜式地进行踩油门的操作就可以让汽车实现加速。</p>
+<h3 id="2-接口分类"><a href="#2-接口分类" class="headerlink" title="2.接口分类"></a>2.接口分类</h3><blockquote>
+<p>WebService和HTTP</p>
+</blockquote>
+<p>（1）WebService接口走soap协议，请求报文和返回报文都是xml格式，通过SoapUI工具进行测试；</p>
+<p>（2）HTTP API接口走HTTP协议，通过路径来区分调用的方法，请求报文入参有多种形式，返回报文一般为json串，最常见的是get和post方法。</p>
+<h3 id="3-接口测试必要性"><a href="#3-接口测试必要性" class="headerlink" title="3.接口测试必要性"></a>3.接口测试必要性</h3><p>（1）效率上：<br>现在系统的复杂性与日俱增，传统测试方法人工成本过高且效率低下，而接口测试比较容易实现自动化集成，减少人工成本与时间，缩短测试周期；</p>
+<p>（2）安全上：<br>前后端架构分离，只依靠前端进行测试已经完全不能满足系统安全要求，绕过前面实在太容易，需要后端同样进行控制，在这种情况下就需要从接口层面验证。</p>
+<h3 id="4-接口测试原理"><a href="#4-接口测试原理" class="headerlink" title="4.接口测试原理"></a>4.接口测试原理</h3><p>通过程序模拟客户端向服务器发送请求报文，服务器接收请求报文后对报文做处理并向客户端返回应答，客户端再接收应答的一个过程。</p>
+<h3 id="5-接口文档关键部分"><a href="#5-接口文档关键部分" class="headerlink" title="5.接口文档关键部分"></a>5.接口文档关键部分</h3><p>接口说明</p>
+<p>调用的url</p>
+<p>请求方法（get、post）</p>
+<p>请求参数，参数类型、请求参数说明</p>
+<p>返回参数说明</p>
+<p>返回示例</p>
+<h3 id="6-接口测试分类"><a href="#6-接口测试分类" class="headerlink" title="6.接口测试分类"></a>6.接口测试分类</h3><p>（1）功能测试：<br>由于是针对基本业务功能进行测试，这部分是两种测试重合度最高的一块，开发同学通常所指的也主要是这部分的内容。<br>测试覆盖：业务流程，参数类型、可选项等。</p>
+<p>（2）边界分析测试：<br>在基本功能测试的基础上考虑输入输出的边界条件。相对来说接口可以覆盖的范围很广，同样的，接口出现问题的概率也更高。<br>测试覆盖：边界值、特殊字符等。</p>
+<p>（3）性能测试：<br>接口性能主要关注接口响应时间、并发、服务端资源的使用情况等。越靠近底层，对于系统的性能优化越有利。<br>测试覆盖：并发数、吞吐量、tps等</p>
+<h3 id="7-接口测试工具"><a href="#7-接口测试工具" class="headerlink" title="7.接口测试工具"></a>7.接口测试工具</h3><p>Postman，jmeter，soupUI等测试工具。</p>
+<h2 id="测试用例基本概念拓展"><a href="#测试用例基本概念拓展" class="headerlink" title="测试用例基本概念拓展"></a>测试用例基本概念拓展</h2><blockquote>
+<p>简单来说，测试用例就是一个文档，描述输入、输出、动作、时间等，其目的是确定应用程序的某个特性是否正常工作，并且达到程序所设计的期望结果。</p>
+</blockquote>
+<h3 id="测试用例的作用"><a href="#测试用例的作用" class="headerlink" title="测试用例的作用"></a>测试用例的作用</h3><ul>
+<li>有效性</li>
+</ul>
+<p>避免穷举测试，选取代表性的测试数据进行测试，节省时间和资源，提高测试效率</p>
+<ul>
+<li>避免测试的盲目性</li>
+</ul>
+<p>开始测试之前设计好测试用例，避免盲目测试，使得重点突出、目的明确</p>
+<ul>
+<li>可维护性</li>
+</ul>
+<p>软件版本更新后，只需部分修正测试用例即可继续开展，降低工作强度，缩短项目周期</p>
+<ul>
+<li>可复用性</li>
+</ul>
+<p>项目功能的模块化，使软件易于开发，使得测试过程事半功倍</p>
+<ul>
+<li>可评估性</li>
+</ul>
+<p>程序代码的质量的量化标准应该用测试用例的通过率和测试输出软件缺陷的数目来进行评估</p>
+<ul>
+<li>可管理性</li>
+</ul>
+<p>测试用例是测试人员的重要参考依据，也可以作为检验测试进度、测试工作量的因素，来对测试工作进行有效管理</p>
+<h3 id="测试用例的设计"><a href="#测试用例的设计" class="headerlink" title="测试用例的设计"></a>测试用例的设计</h3><p>通常由经验丰富的测试人员设计测试用例，经验较少的人员从执行测试用例开始进行，随着经验和技术的积累，再逐渐开始参与测试用例的设计工作。</p>
+<h3 id="tip1-测试设计说明"><a href="#tip1-测试设计说明" class="headerlink" title="tip1.测试设计说明"></a>tip1.测试设计说明</h3><p>类似开发人员有项目开发功能书一样，测试人员也要有说明书来指导测试人员如何设计测试用例，包括但不限于：被测特性、测试所用的方法、测试准则等。</p>
+<ul>
+<li><p>标识符</p>
+</li>
+<li><p>被测特性</p>
+</li>
+<li><p>方法</p>
+</li>
+<li><p>测试用例信息</p>
+</li>
+<li><p>通过/失败规则</p>
+</li>
+</ul>
+<h3 id="tip2-测试用例编写"><a href="#tip2-测试用例编写" class="headerlink" title="tip2.测试用例编写"></a>tip2.测试用例编写</h3><ul>
+<li>用例的编号</li>
+</ul>
+<p>由测试引用的唯一标识符，便于查找测试用例，也便于用例的追踪和管理</p>
+<ul>
+<li>测试标题</li>
+</ul>
+<p>对测试用例的描述，清楚表达用例的相关用途等</p>
+<ul>
+<li>测试项</li>
+</ul>
+<p>测试用例应该具体详细的描述所测试项的详细特征，更加详细具体</p>
+<ul>
+<li>测试环境要求</li>
+</ul>
+<p>该测试用例执行的外部条件，软硬件具体指标和测试工具等</p>
+<ul>
+<li>特殊要求</li>
+</ul>
+<p>对环境的特殊需求，如所需设备型号、对防火墙等的特殊设置</p>
+<ul>
+<li>测试输入说明</li>
+</ul>
+<p>提供测试执行中的各种输入条件。根据需求中的输入条件，确定测试用例的输入。</p>
+<ul>
+<li>操作步骤</li>
+</ul>
+<p>提供测试执行的过程步骤，对于复杂的用例，应该分为几个步骤分别完成测试。</p>
+<ul>
+<li>预期结果</li>
+</ul>
+<p>提供测试执行的预期结果，预期结果应该根据软件需求中的输出得出。如实际结果与预期结果不符合，则测试不通过。</p>
+<ul>
+<li>测试用例之间的关联</li>
+</ul>
+<p>用来标示该测试用例和其他测试用例之间的依赖关系。在实际测试中，很多测试用例并不是单独存在的，而是可能存在 某种相互依赖关系。</p>
+<ul>
+<li><p>测试用例设计人员和测试人员</p>
+</li>
+<li><p>测试优先级</p>
+</li>
+</ul>
+<p>一般分为0～4的一共5个等级，通过优先级来标注出软件测试的重点和先后顺序。</p>
+<h3 id="测试用例的分类和阶段"><a href="#测试用例的分类和阶段" class="headerlink" title="测试用例的分类和阶段"></a>测试用例的分类和阶段</h3><table>
+<thead>
+<tr>
+<th>测试阶段</th>
+<th align="center">测试类型</th>
+<th align="right">执行人员</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元测试</td>
+<td align="center">模块功能测试、部分接口测试、覆盖测试、路径测试</td>
+<td align="right">开发与测试结合</td>
+</tr>
+<tr>
+<td>集成测试</td>
+<td align="center">接口测试、路径测试、部分功能测试</td>
+<td align="right">开发与测试结合或测试</td>
+</tr>
+<tr>
+<td>系统测试</td>
+<td align="center">功能测试、兼容性测试、性能测试、用户界面测试、安全性测试、强度测试、可靠性测试</td>
+<td align="right">测试人员</td>
+</tr>
+<tr>
+<td>验收测试</td>
+<td align="center">对于实际项目基本同上、包含文档测试</td>
+<td align="right">测试人员或包含用户</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Chester Cheung</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://example.com/2020/01/20/2020-1-20-API-test-learning/">http://example.com/2020/01/20/2020-1-20-API-test-learning/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/OS/"># OS</a>
+                    
+                        <a href="/tags/Test/"># Test</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/02/21/2020-2-21-shell/">Shell脚本2小时速学</a>
+            
+            
+            <a class="next" rel="next" href="/2019/12/01/2019-12-1-2019Summary/">手握日月摘星辰，更藉浊酒祭风尘</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Chester Cheung | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
