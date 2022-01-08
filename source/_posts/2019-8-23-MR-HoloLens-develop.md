@@ -56,13 +56,13 @@ Unity3d|Unity 2018.4.6f1及以上版本
 
 Visual Studio的配置是否正确决定了项目能否成功从Unity中构建导出，进而设计能否在Hololens生成APP及调试。下面是团队经多次尝试后确认的正确配置所需选择的，建议大家不要轻易修改：
 
-![2019-8-23-1](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-1.png)
+![2019-8-23-1](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-1.png)
 
-![2019-8-23-2](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-2.png)
+![2019-8-23-2](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-2.png)
 
-![2019-8-23-3](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-3.png)
+![2019-8-23-3](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-3.png)
 
-![2019-8-23-4](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-4.png)
+![2019-8-23-4](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-4.png)
 
 在进行Hololens的开发时，我们需要集成微软官方提供的 MixedRealityToolKit项目。MixedRealityToolKit ，即原来的HoloToolkit-Unity项目，简称MRTK，是微软官方的开源项目，用于帮助开发者快速开发 HoloLens 应用，能够快速为项目集成基本输入、空间映射和场景匹配等特性。
 
@@ -72,11 +72,11 @@ Visual Studio的配置是否正确决定了项目能否成功从Unity中构建�
 在Github上下载MRTK项目代码：
 [https://github.com/microsoft/MixedRealityToolkit-Unity](https://github.com/microsoft/MixedRealityToolkit-Unity)
 
-![2019-8-23-5](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-5.png)
+![2019-8-23-5](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-5.png)
 
 将下载的ZIP解压，使用Unity以打开工程的方式打开解压得到的文件夹，右击Assets，选择Export Package，将所有MRTK前缀的包全部选上，导出得到一unitypackage格式的文件，即是后续在Unity项目中可直接导入的MRTK工具包。
 
-![2019-8-23-6](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-6.png)
+![2019-8-23-6](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-6.png)
 
 ### Unity3d开发配置
 
@@ -84,31 +84,31 @@ Unity3D是进行Hololens开发的主要平台，也是我们开发VR/AR/MR等等
 使用Unity新建一个3D项目，由左上角选项栏沿Assets-import package-custom package途径引入上一步中导出的unitypackage文件。
 在成功导入后选项框上会出现一个新的选项——Mixed Reality Toolkit，点击并选择Add to Scene and Configure,选择添加图中高亮的MixedRealityToolKitConfigurationProfile，随即左侧框中出现MRTK及MRPlaySpace。
 
-![2019-8-23-7](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-7.png)
+![2019-8-23-7](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-7.png)
 
-![2019-8-23-8](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-8.png)
+![2019-8-23-8](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-8.png)
 
-![2019-8-23-9](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-9.png)
+![2019-8-23-9](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-9.png)
 
 由于Hololens内装的是UWP版的Windows 10系统，而Unity默认创建项目运行的平台即标准版本，与之不符，因而需在左上角选项栏中沿File-Build Settings去转换平台为UWP版，相关设置更改如下图，且勿漏选，错选。（笔者使用的是Unity 2018.4.6f1版本）选好后点击Switch Platform即可。
 
-![2019-8-23-10](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-10.png)
+![2019-8-23-10](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-10.png)
 
 仍在Building Settings中点击左下角的Player Settings，在Unity右侧的Inspector中选择XR Settings，勾选其中的Virtual Reality Support 和WSA Holographic Remoting supported。
 
-![2019-8-23-11](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-11.png)
+![2019-8-23-11](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-11.png)
 
 截至此步基本配置已完成，可通过Holographic Remoting Player与设备连接，点击开始即快捷地调试已有项目。注意Holographic Remoting Player是在Hololens上安装，电脑端通过Window-XR-Holographic Emulation途径打开下面的界面，Emulation Mode 选择Remote to Device，在Hololens上打开Holographic Remoting Player后即可获取Hololens的ip地址，输入到Remote Machine中即可。
 
 详细使用方法见：[https://docs.microsoft.com/zh-cn/windows/mixed-reality/holographic-remoting-player](https://docs.microsoft.com/zh-cn/windows/mixed-reality/holographic-remoting-player)
 
-![2019-8-23-12](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-12.png)
+![2019-8-23-12](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-12.png)
 
 强烈推荐在Windows Store（Windows自带）上下载Microsoft HoloLens，可实时获取设备第一视角的直播，及进行实时照相，录屏等功能，方便团队开发。
 
-![2019-8-23-13](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-13.png)
+![2019-8-23-13](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-13.png)
 
-![2019-8-23-14](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-14.png)
+![2019-8-23-14](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-14.png)
 
 本片博客的环境配置大多是靠队友支撑起来的，因为我用的是macOS电脑，所以最后我的电脑是无法跑起来的，但是这并不影响我对项目作出自己的贡献，我主要在项目中是负责C#脚本的编写和测试。
 
