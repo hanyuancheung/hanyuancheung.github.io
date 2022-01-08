@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Chester Cheung">
+
+
+
+
+
+<title>Operating System 3 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">hanyuancheung&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">hanyuancheung&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Operating System 3</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Chester Cheung</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 24, 2019&nbsp;&nbsp;18:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/OS/">OS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="四、进程通信"><a href="#四、进程通信" class="headerlink" title="四、进程通信"></a>四、进程通信</h2><p>定义：进程之间的信息交换</p>
+<p><strong>进程是资源分配的最小单位</strong>，因此，各个进程的内存地址空间相互独立</p>
+<p>通常来说，为了保证安全，一个进程不能直接访问另一个的地址空间</p>
+<blockquote>
+<p>三种通信方式: 共享存储、 管道通信、消息传递</p>
+</blockquote>
+<h4 id="共享存储"><a href="#共享存储" class="headerlink" title="共享存储"></a>共享存储</h4><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-8.png" alt="OS-8"></p>
+<p>设置一个共享空间，进程间互斥的进行访问；</p>
+<p>分为：</p>
+<ol>
+<li><p>基于数据结构的共享存储，共享速度慢，限制多，低级通信</p>
+</li>
+<li><p>基于存储区的共享存储，内存中划分出存储区，数据形式、存储位置都由进程来控制，速度快，高级通信</p>
+</li>
+</ol>
+<h4 id="管道通信pipe"><a href="#管道通信pipe" class="headerlink" title="管道通信pipe"></a>管道通信pipe</h4><blockquote>
+<p>主要用于父子进程间通信</p>
+</blockquote>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-9.png" alt="OS-9"></p>
+<p>“管道”指用于连接读写进程的共享文件，称为pipe文件（内存中开辟固定大小的缓冲区）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> testPipe() throws IOException &#123;</span><br><span class="line">    <span class="comment">// 1、获取通道</span></span><br><span class="line">    Pipe pipe = Pipe.open();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、获取sink管道，用来传送数据</span></span><br><span class="line">    Pipe.SinkChannel sinkChannel = pipe.sink();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、申请一定大小的缓冲区</span></span><br><span class="line">    ByteBuffer byteBuffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">    byteBuffer.put(<span class="string">&quot;123232142345234&quot;</span>.getBytes());</span><br><span class="line">    byteBuffer.flip();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4、sink发送数据</span></span><br><span class="line">    sinkChannel.write(byteBuffer);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5、创建接收pipe数据的source管道</span></span><br><span class="line">    Pipe.SourceChannel sourceChannel = pipe.source();</span><br><span class="line">    <span class="comment">// 6、接收数据，并保存到缓冲区中</span></span><br><span class="line">    ByteBuffer byteBuffer2 = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">    byteBuffer2.flip();</span><br><span class="line">    <span class="keyword">int</span> length = sourceChannel.read(byteBuffer2);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="keyword">new</span> <span class="keyword">String</span>(byteBuffer2.<span class="keyword">array</span>(), <span class="number">0</span>, length));</span><br><span class="line"></span><br><span class="line">    sourceChannel.close();</span><br><span class="line">    sinkChannel.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<ol>
+<li><p>半双工通信：某时间段内只能单向传输（进程互斥进行访问），若要实现双向通信，就设置两个管道</p>
+</li>
+<li><p>数据以字符流的形式写入管道</p>
+</li>
+<li><p>如果没有写满，就不允许读；同样，如果没读空，就不允许写</p>
+</li>
+<li><p>pipe写满时，write()系统调用被阻塞，等待读进程将数据取走后，管道变空，read()被阻塞</p>
+</li>
+</ol>
+<h4 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h4><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-10.png" alt="OS-10"></p>
+<p>数据交换以格式化消息Message为单位，通过OS的“发送/接收消息”的原语进行</p>
+<p><strong>消息 = 消息头 + 消息体</strong><br>（消息头：发送ID、接收ID、消息类型、长度）</p>
+<h2 id="五、多线程概念模型"><a href="#五、多线程概念模型" class="headerlink" title="五、多线程概念模型"></a>五、多线程概念模型</h2><p>引入线程的目的：提高并发度</p>
+<p>传统的进程是程序执行流的最小单位；有了多线程，线程就成了程序执行流的最小单位</p>
+<p><strong>进程是资源分配的最小单位，线程是调度的最小单位</strong></p>
+<ol>
+<li><p>进程间并发，需要切换进程的运行环境，开销大</p>
+</li>
+<li><p>线程间并发，若在同一进程内，不切换环境，开销小</p>
+</li>
+</ol>
+<h4 id="属性要点"><a href="#属性要点" class="headerlink" title="属性要点"></a>属性要点</h4><ol>
+<li><p>每个线程都由独立的ID、线程控制块TCB</p>
+</li>
+<li><p>线程几乎不拥有系统资源</p>
+</li>
+<li><p>同一进程的线程之间共享进程的资源</p>
+</li>
+</ol>
+<h4 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h4><p>用户级线程、内核级线程</p>
+<blockquote>
+<p>用户级线程——多对一模型<br>由应用程序通过线程池来管理实现。<strong>用户级线程中，线程切换可在用户态下完成</strong></p>
+</blockquote>
+<p>理解：<strong>从用户角度可以看到的线程</strong></p>
+<blockquote>
+<p>内核级线程——一对一模型<br>由操作系统完成该进程的管理。<strong>内核级线程中，线程切换需要在核心态下完成</strong></p>
+</blockquote>
+<p>理解：<strong>从OS内核视角看到的线程</strong></p>
+<blockquote>
+<p>二者组合<br>将n 个用户级线程映射到m个内核级线程（n &gt;= m）</p>
+</blockquote>
+<p>克服了多对一模型并发度不高的缺点，克服了一对一模型中每个用户进程占用太多资源的缺点</p>
+<p>通过下图进行小节下：</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-11.png" alt="OS-11"></p>
+<h2 id="六、CPU的调度"><a href="#六、CPU的调度" class="headerlink" title="六、CPU的调度"></a>六、CPU的调度</h2><p>从就绪队列中按照一定的算法选择一个进程并将CPU时间分配给他调度，实现进程的并发</p>
+<p><strong>三种调度:高级调度(作业调度)、中级调度(内存调度)、低级调度(进程调度)</strong></p>
+<blockquote>
+<p>高级调度<br>是外存与内存之间的调度</p>
+</blockquote>
+<p>按一定的原则从外存上处于后备队列的作业中挑选一个或多个作业，分配内存等必要资源，建立进程</p>
+<blockquote>
+<p>中级调度<br>提高系统内存利用率、系统吞吐量</p>
+</blockquote>
+<p>决定将哪个处于挂起状态的进程重新调入内存，一个进程可能多次被调出、调入内存，<strong>发生频率高于高级调度</strong></p>
+<blockquote>
+<p>低级调度<br>最基本的一种调度</p>
+</blockquote>
+<p>按照某种策略或方法，从就绪队列中选取一个进程分配CPU时间，<strong>调用的频率很高</strong></p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-12.png" alt="OS-12"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Chester Cheung</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Keep Eyes & Ears Open.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/OS/"># OS</a>
+                    
+                        <a href="/tags/Linux/"># Linux</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/12/01/2019-12-1-2019Summary/">手握日月摘星辰，更藉浊酒祭风尘</a>
+            
+            
+            <a class="next" rel="next" href="/2019/10/23/2019-10-23-Operating-System-2/">Operating System 2</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Chester Cheung | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Chester Cheung">
+
+
+
+
+
+<title>python实现常用测试模块 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">hanyuancheung&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">hanyuancheung&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">python实现常用测试模块</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Chester Cheung</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 25, 2020&nbsp;&nbsp;23:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Test/">Test</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="用python实现常用测试模块"><a href="#用python实现常用测试模块" class="headerlink" title="用python实现常用测试模块"></a>用python实现常用测试模块</h2><h4 id="python-AES-加解密模块"><a href="#python-AES-加解密模块" class="headerlink" title="python AES 加解密模块"></a><strong>python AES 加解密模块</strong></h4><blockquote>
+<p>Definition：</p>
+<p>AES：高级加密标准(Advanced Encryption Standard)是最常见的对称加密算法之一，微信小程序就是用合格加密算法。</p>
+</blockquote>
+<p>对称加密算法也就是加密和解密使用相同的密钥，具体的流程图如下图所示：</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/pytest-1.png" alt="pytest-1"></p>
+<p>AES使用分组密码，分组密码也就是将明文分成一组一组的，每组的长度相等，每次加密一组数据，知道将整个明文都加密完成。在AES标准规范中，分组长度只能是128位，也就是说，每个分组16个字节（每个字节8位）。密钥的长度可以使用128位、192位、256位等。</p>
+<p><u>密钥的长度不等，推荐加密的轮数也不相等。</u></p>
+<p><strong>一般我们最常使用的就是AES-128，是密钥的长度为128位，加密轮数位10轮。</strong></p>
+<blockquote>
+<p>AES加解密的流程中包括的主要步骤：</p>
+</blockquote>
+<p>明文分组 、字节代换、行位移、列混淆、轮密钥加</p>
+<blockquote>
+<p>AES算法代码实现：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> binascii <span class="keyword">import</span> b2a_hex, a2b_hex</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">prpcrypt</span>():</span></span><br><span class="line">  </span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, key</span>):</span></span><br><span class="line">		self.key = key.encode(<span class="string">&#x27;utf-8&#x27;</span>) self.mode = AES.MODE_CBC</span><br><span class="line">		<span class="comment"># 加密函数，如果 text 不是 16 的倍数【加密文本 text 必须为 16 的倍数!】，那就补足为 16 的 倍数</span></span><br><span class="line">    </span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">encrypt</span>(<span class="params">self, text</span>):</span></span><br><span class="line">		text = text.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">		<span class="comment"># 创建一个新的 AES 密码</span></span><br><span class="line">		<span class="comment"># key 为对称加密中使用的密钥，mode_CBC 是 AES 五种加密模式中的密码分组链接模式 </span></span><br><span class="line">    cryptor = AES.new(self.key, self.mode, self.key)</span><br><span class="line"><span class="comment"># 这里密钥 key 长度必须为 16(AES-128)、24(AES-192)、或 32(AES-256)Bytes 长</span></span><br><span class="line"><span class="comment">#度.目前 AES-128 足够用 length = 16</span></span><br><span class="line">		count = <span class="built_in">len</span>(text)</span><br><span class="line">		<span class="keyword">if</span> (count % length != <span class="number">0</span>):</span><br><span class="line">			add = length - (count % length) </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">			add = <span class="number">0</span></span><br><span class="line">		text = text + (<span class="string">&#x27;\0&#x27;</span> * add).encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">		<span class="comment"># 真正的加密操作，使用初始化时的密钥加密数据</span></span><br><span class="line">		self.ciphertext = cryptor.encrypt(text)</span><br><span class="line"><span class="comment"># 因为 AES 加密时候得到的字符串不一定是 ascii 字符集的，输出到终端或者保存时候可能存</span></span><br><span class="line">在问题</span><br><span class="line"><span class="comment"># 所以这里统一把加密后的字符串转化为 16 进制字符串 </span></span><br><span class="line">		<span class="keyword">return</span> b2a_hex(self.ciphertext)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密后，去掉补足的空格用 strip() 去掉 </span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">self, text</span>):</span></span><br><span class="line">		cryptor = AES.new(self.key, self.mode, self.key)</span><br><span class="line">    plain_text = cryptor.decrypt(a2b_hex(text))</span><br><span class="line"><span class="comment"># return plain_text.rstrip(&#x27;\0&#x27;)</span></span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">bytes</span>.decode(plain_text).rstrip(<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line"></span><br><span class="line">pc = prpcrypt(<span class="string">&#x27;keyskeyskeyskeys&#x27;</span>) <span class="comment"># 初始化密钥</span></span><br><span class="line">e = pc.encrypt(<span class="string">&quot;0123456789ABCDEF&quot;</span>) <span class="comment"># 对输入明文进行加密 </span></span><br><span class="line">d = pc.decrypt(e) <span class="comment"># 解密密文操作</span></span><br><span class="line"><span class="built_in">print</span>(e, d)</span><br><span class="line">e = pc.encrypt(<span class="string">&quot;00000000000000000000000000&quot;</span>)</span><br><span class="line">d = pc.decrypt(e)</span><br><span class="line"><span class="built_in">print</span>(e, d)</span><br></pre></td></tr></table></figure>
+<p>下面我们来看下代码的运行结果：</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/pytest-2.png" alt="pytest-2"></p>
+<h4 id="python-unittest-单元测试模块"><a href="#python-unittest-单元测试模块" class="headerlink" title="python unittest 单元测试模块"></a><strong>python unittest 单元测试模块</strong></h4><blockquote>
+<p>unittest 是 python 的一个基础常用的单元测试框架，</p>
+</blockquote>
+<p>便于我们编写测试用例以及测试执行。其中中最核心的四个概念是:</p>
+<p>test case</p>
+
+<p>test suite</p>
+
+<p>test runner</p>
+
+<p>test fixture</p>
+
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/pytest-3.png" alt="pytest-3"></p>
+<p><u>unittest 进行单元测试的流程：</u></p>
+<ol>
+<li>写好 TestCase，然后由 TestLoader 加载 TestCase 到 TestSuite</li>
+<li>然后由 TextTestRunner 来运行 TestSuite，运行的结果保存在 TextTestResult 中</li>
+<li>我们通过命令行或者 unittest.main()执行时，main 会调用 TextTestRunner 中的 run 来执行，或者我们可以直接通过 TextTestRunner 来执行用 例。</li>
+</ol>
+<p>一个 class 继承 unittest.TestCase 即是一个 TestCase，其中以 test 开头的方法 在 load 时被加载为一个真正的 TestCase。</p>
+<p>在 TestRunner 中的 verbosity 参数可以控制执行结果的输出，0 是简单报告、1 是一般报告、2 是详细报告。</p>
+<p>下面完成一次基本的 unittest 单元测试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备好待测函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">a, b</span>):</span> </span><br><span class="line">  <span class="keyword">return</span> a+b</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minus</span>(<span class="params">a, b</span>):</span></span><br><span class="line">  <span class="keyword">return</span> a-b</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multi</span>(<span class="params">a, b</span>):</span></span><br><span class="line">  <span class="keyword">return</span> a*b</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">divide</span>(<span class="params">a, b</span>):</span></span><br><span class="line">  <span class="keyword">return</span> a/b</span><br></pre></td></tr></table></figure>
+
+<p>然后写出待测函数的测试方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> mathfunc <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestMathFunc</span>(<span class="params">unittest.TestCase</span>):</span> </span><br><span class="line">  <span class="string">&quot;&quot;&quot;Test mathfuc.py&quot;&quot;&quot;</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">setUp</span>(<span class="params">cls</span>):</span></span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&quot;do something before test.Prepare environment.&quot;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">tearDown</span>(<span class="params">cls</span>):</span></span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&quot;do something after test.Clean up.&quot;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_add</span>(<span class="params">self</span>):</span></span><br><span class="line">		<span class="string">&quot;&quot;&quot;Test method add(a, b)&quot;&quot;&quot;</span> </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;add&quot;</span>)</span><br><span class="line">		self.assertEqual(<span class="number">3</span>, add(<span class="number">1</span>, <span class="number">2</span>)) </span><br><span class="line">    self.assertNotEqual(<span class="number">3</span>, add(<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_minus</span>(<span class="params">self</span>):</span></span><br><span class="line">		<span class="string">&quot;&quot;&quot;Test method minus(a, b)&quot;&quot;&quot;</span> </span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&quot;minus&quot;</span>) </span><br><span class="line">    self.assertEqual(<span class="number">1</span>, minus(<span class="number">3</span>, <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_multi</span>(<span class="params">self</span>):</span></span><br><span class="line">		<span class="string">&quot;&quot;&quot;Test method multi(a, b)&quot;&quot;&quot;</span> </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;multi&quot;</span>) </span><br><span class="line">    self.assertEqual(<span class="number">6</span>, multi(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">test_divide</span>(<span class="params">self</span>):</span></span><br><span class="line">		<span class="string">&quot;&quot;&quot;Test method divide(a, b)&quot;&quot;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;divide&quot;</span>)</span><br><span class="line">		self.assertEqual(<span class="number">2</span>, divide(<span class="number">6</span>, <span class="number">3</span>)) </span><br><span class="line">    self.assertEqual(<span class="number">2.5</span>, divide(<span class="number">5</span>, <span class="number">2</span>))</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>: </span><br><span class="line">  unittest.main()</span><br></pre></td></tr></table></figure>
+
+<p>以上代码已经可以完成一次简单的<strong>单元测试</strong>了，但是还无法按照指定的顺序 来执行测试用例。因此我们这里使用 suite 来控制每个 case 的先后执行顺序：同 时，如果同时有多个测试文件，我们也可以通过 suite 来控制他们进行一起执行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> test_mathfunc <span class="keyword">import</span> TestMathFunc </span><br><span class="line"><span class="keyword">from</span> HTMLTestRunner <span class="keyword">import</span> HTMLTestRunner</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">suite = unittest.TestSuite() suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestMathFunc)) </span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;UnittestTextReport.txt&#x27;</span>, <span class="string">&#x27;a&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">runner = unittest.TextTestRunner(stream=f, verbosity=<span class="number">2</span>)</span><br><span class="line">runner.run(suite)</span><br></pre></td></tr></table></figure>
+
+<p>然后我们试着运行，可以看到运行结果如下：</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/pytest-4.png" alt="pytest-4"></p>
+<blockquote>
+<p>如果出现有 ok 的记号，则表示本次测试的结果为成功;如果出现 fail，则表 示测试结果出现问题，这时我们就需要寻找问题，看看测试结果问题在哪里。</p>
+</blockquote>
+<h4 id="python-assert-断言"><a href="#python-assert-断言" class="headerlink" title="python assert 断言"></a><strong>python assert 断言</strong></h4><p>对于断言，官方有一段官方的解释:Assert statements are a convenient way toinsert debugging assertions into a program，其作用就是类似于我们 debug 的工具，</p>
+<p>一般的用法是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> condition</span><br></pre></td></tr></table></figure>
+
+<p>用来让程序测试这个 condition，如果 condition 为 false，那么 raise 一个AssertionError 出来。逻辑上等同于:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> condition:</span><br><span class="line">    <span class="keyword">raise</span> AssertionError()</span><br></pre></td></tr></table></figure>
+
+<p>我们来简单做一个小小的断言测试:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>, <span class="string">&quot;以下结果出现断言&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/pytest-5.png" alt="pytest-5"></p>
+<h4 id="python-pyserial-串口模块"><a href="#python-pyserial-串口模块" class="headerlink" title="python pyserial 串口模块"></a><strong>python pyserial 串口模块</strong></h4><p>pyserial 模块封装了对串口的访问。在支持的平台上有统一的接口，通过 python属性访问串口设置。支持不同的字节大小、停止位、校验位和流控设置。 </p>
+<p>在串口的配置中，有以下一些比较重要的属性需要我们了解：波特率、数据位、停止位、校验位、字节大小、读写超时设置等。 下面我们来看下对于串口的设置方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> serial</span><br><span class="line"><span class="keyword">import</span> serial.tools.list_ports</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">serial_ports</span>():</span></span><br><span class="line"><span class="string">&quot;&quot;&quot; Lists serial port names</span></span><br><span class="line"><span class="string">       :raises EnvironmentError:</span></span><br><span class="line"><span class="string">          On unsupported or unknown platforms</span></span><br><span class="line"><span class="string">       :returns:</span></span><br><span class="line"><span class="string">          A list of the serial ports available on the system</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 如果是 windows 平台的系统，对应的串口号形式 if sys.platform.startswith(&#x27;win&#x27;):</span></span><br><span class="line">ports = [<span class="string">&#x27;COM%s&#x27;</span> % (i + <span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>)]</span><br><span class="line"><span class="comment"># 如果是 Linux 平台的系统，对应的串口号形式</span></span><br><span class="line"><span class="keyword">elif</span> sys.platform.startswith(<span class="string">&#x27;linux&#x27;</span>) <span class="keyword">or</span> sys.platform.startswith(<span class="string">&#x27;cygwin&#x27;</span>):</span><br><span class="line"><span class="comment"># this excludes your current terminal &quot;/dev/tty&quot;</span></span><br><span class="line">ports = glob.glob(<span class="string">&#x27;/dev/tty[A-Za-z]*&#x27;</span>) <span class="comment"># 如果是 OS X 的系统，对应的串口号形式</span></span><br><span class="line"><span class="keyword">elif</span> sys.platform.startswith(<span class="string">&#x27;darwin&#x27;</span>):</span><br><span class="line">ports = glob.glob(<span class="string">&#x27;/dev/tty.*&#x27;</span>) <span class="keyword">else</span>:</span><br><span class="line"><span class="keyword">raise</span> EnvironmentError(<span class="string">&#x27;Unsupported platform&#x27;</span>) result = []</span><br><span class="line"><span class="comment"># 可以通过 Serial 函数对每一个串口进行控制其操作 for port in ports:</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">s = serial.Serial(port) s.close() result.append(port)</span><br><span class="line"><span class="keyword">except</span> (OSError, serial.SerialException): <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">return</span> result</span><br><span class="line"><span class="comment"># 这句命令可以在终端打印出所有的串口设备</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(serial.tools.list_ports.comports()))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>: <span class="built_in">print</span>(serial_ports())</span><br></pre></td></tr></table></figure>
+
+<p>下面看下我电脑上打印出来的相关串口号，可以看到一共有 3 个，表示的是每个 串口分配到的地址：</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/pytest-6.png" alt="pytest-6"></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Chester Cheung</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Keep Eyes & Ears Open.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/OS/"># OS</a>
+                    
+                        <a href="/tags/Test/"># Test</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/04/2020-04-4-JOS/">6.828 ZhyOS在macOS下的环境配置-2020</a>
+            
+            
+            <a class="next" rel="next" href="/2020/02/21/2020-2-21-shell/">Shell脚本2小时速学</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Chester Cheung | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Chester Cheung">
+
+
+
+
+
+<title>TOGAF企业架构体系 | Hexo</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">hanyuancheung&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">hanyuancheung&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">TOGAF企业架构体系</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Chester Cheung</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 10, 2020&nbsp;&nbsp;19:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/thinking/">thinking</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="TOGAF定义"><a href="#TOGAF定义" class="headerlink" title="TOGAF定义"></a>TOGAF定义</h3><p>TOGAF 即 The Open Group Architecture Framework （开放组体系结构框架），是由致力于技术标准制定和推广的非盈利组织 The Open Group 制定的用于开发企业架构（Enterprise Architecture）的一套方法和工具。</p>
+<h3 id="在介绍-TOGAF-之前，今天先来聊聊企业架构。"><a href="#在介绍-TOGAF-之前，今天先来聊聊企业架构。" class="headerlink" title="在介绍 TOGAF 之前，今天先来聊聊企业架构。"></a>在介绍 TOGAF 之前，今天先来聊聊企业架构。</h3><p>企业架构由IT架构发展而来。所以在一些定义中，会把企业架构简单定义为企业信息系统建设的规划。</p>
+<blockquote>
+<p>上世纪七十年代美国军方想要建立一个牛X的系统来管理通讯指挥作战的所有相关资源，建立这个系统的方法后来形成理论并于2003年发展成 DoDAF （美国国防部体系架构框架）。在那之前，民间已经发展出好几个框架雏形。其中，1987美国人 John Zachman 发表论文首次提出了“信息系统架构框架”的概念（后改称“企业架构框架”），奠定了企业架构的理论基础。</p>
+</blockquote>
+<p>但其实现在我们讲的企业架构，一般包括业务架构（流程、组织）、应用架构（应用、服务）、数据架构（数据、信息）和技术架构（硬件、网络）这几方面内容。</p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/togaf.jpg" alt="TOGAF"></p>
+<h3 id="企业架构组成"><a href="#企业架构组成" class="headerlink" title="企业架构组成"></a>企业架构组成</h3><p>根据 TOGAF 的定义，企业是具有一系列共同目标的组织的集合。而企业架构则是为了有效地实现这一系列目标，去定义企业的结构和运作模式的概念蓝图（SearchCIO），是构成企业的所有关键元素和其关系的综合描述（Zachman），是通过创建、沟通和优化用以描述企业未来状态和发展的关键原则和模型以将业务愿景和战略转化成有效的企业变更的过程（Gartner）。</p>
+<p>就好比建一栋房子不是撸子袖子就去搬砖，需要有设计图纸，去决定房屋结构、构成部分、功能、空间关系等元素，而企业架构则是企业顶层设计的图纸。</p>
+<p>很多企业在进行信息化建设时，常常以技术为主导，把关注点放在当前问题的IT实现上，缺乏全局思考，与业务脱节，导致上线的新系统往往无法对业务提供有效支持，无法适应快速变化的需求；各系统间无法形成有效联动，也存在功能重复建设的情况。简单说来，就是管理层、IT人员和业务人员之间没有进行充分沟通并达成共识。</p>
+<p>数字化时代，“业务即IT，IT即业务”，已不能割裂来看业务与IT。在外部环境迅速变化、内部环境日益复杂的情况下，一个完备而科学的企业架构就显得极为重要。它可以在利益相关者（stakeholders）间、信息系统间、人与系统间搭建无障碍沟通的桥梁，保障各方拥有共同的理解与愿景。</p>
+<blockquote>
+<p>企业架构是承接企业业务战略与 IT战略之间的桥梁与标准接口，是企业信息化规划的核心。</p>
+</blockquote>
+<p>而企业架构框架，例如上面提到 TOGAF、Zachman、DoDAF 等，则是帮助企业全面、有序地去构建属于自己的企业架构的方法论和工具集。</p>
+<h3 id="如何构建企业架构"><a href="#如何构建企业架构" class="headerlink" title="如何构建企业架构"></a>如何构建企业架构</h3><p>一来，并没有哪个企业架构框架适用于所有企业，企业需要根据自身情况选择合适的框架进行裁剪，借助框架进行企业架构的开发。TOGAF也说自己不是一个“one-size-fits-all”的框架。生搬硬套与全盘照抄是没有任何价值哒。</p>
+<p>二来，退一步说，企业架构定义不是一项简单工作，有一定的门槛，并不是处在所有发展阶段的所有企业都适合大力推行企业架构。对很多企业（特别是小微企业）来说，将重心放在方法论和工具的研究上不如老老实实地进行业务分析收效更快。就像在NBA球场上，战术体系的重要性不言而喻，然而现今很多年轻球队却是通过加快比赛节奏来赢球的，因为打磨体系太耗时间了。</p>
+<p><strong>总之，企业框架很重要，但是不能盲目崇拜和过分依赖。</strong></p>
+<p>目前较为主流和具备影响力的企业架构框架之一就是 TOGAF 啦。TOGAF 发展至今已有23年历史，2009年的市场占有率超过50%。TOGAF 在国外有 SAP、IBM 等公司在推动，在中国则于2009年由金蝶引入进行本地化和中文化工作。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Chester Cheung</span>
+                    </p>
+                
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Keep Eyes & Ears Open.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/thinking/"># thinking</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/06/10/2020-6-10-SaaS/">理解区分IaaS、SaaS、PaaS的含义和区别</a>
+            
+            
+            <a class="next" rel="next" href="/2020/04/04/2020-04-4-JOS/">6.828 ZhyOS在macOS下的环境配置-2020</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Chester Cheung | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
