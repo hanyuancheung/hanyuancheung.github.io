@@ -31,7 +31,7 @@ cover: >-
 
 #### 共享存储
 
-![OS-8](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-8.png)
+![OS-8](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-8.png)
 
 设置一个共享空间，进程间互斥的进行访问；
 
@@ -44,7 +44,7 @@ cover: >-
 
 > 主要用于父子进程间通信
 
-![OS-9](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-9.png)
+![OS-9](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-9.png)
 
 “管道”指用于连接读写进程的共享文件，称为pipe文件（内存中开辟固定大小的缓冲区）
 
@@ -91,7 +91,7 @@ public void testPipe() throws IOException {
 
 #### 消息传递
 
-![OS-10](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-10.png)
+![OS-10](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-10.png)
 
 数据交换以格式化消息Message为单位，通过OS的“发送/接收消息”的原语进行
 
@@ -139,7 +139,7 @@ public void testPipe() throws IOException {
 
 通过下图进行小节下：
 
-![OS-11](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-11.png)
+![OS-11](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-11.png)
 
 ## 六、CPU的调度
 
@@ -162,5 +162,5 @@ public void testPipe() throws IOException {
 
 按照某种策略或方法，从就绪队列中选取一个进程分配CPU时间，**调用的频率很高**
 
-![OS-12](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-12.png)
+![OS-12](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-12.png)
 

@@ -33,7 +33,7 @@ cover: >-
 
 去麦当劳吃饭，点了一个自己最喜欢的套餐，然后一直在排队等待处等到套餐做好，自己端回到餐桌上就餐。这就是典型的同步阻塞。当厨师给你做饭的时候，你需要一直在那里等着。
 
-![2019-8-23-0](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-10-4-1.jpg)
+![2019-8-23-0](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-10-4-1.jpg)
 
 在网络编程中，读取客户端的数据需要调用recvfrom。在默认情况下，这个调用会一直阻塞直到数据接收完毕，就是一个同步阻塞的IO方式。这也是最简单的IO模型，在通常fd较少、就绪很快的情况下使用是没有问题的。
 
@@ -45,7 +45,7 @@ cover: >-
 
 这种方式在编程中对socket设置O_NONBLOCK即可。但此方式仅仅针对网络IO有效，对磁盘IO并没有作用。因为本地文件IO就没有被认为是阻塞，我们所说的网络IO的阻塞是因为网路IO有无限阻塞的可能，而本地文件除非是被锁住，否则是不可能无限阻塞的，因此只有锁这种情况下，O_NONBLOCK才会有作用。而且，磁盘IO时要么数据在内核缓冲区中直接可以返回，要么需要调用物理设备去读取，这时候进程的其他工作都需要等待。因此，后续的IO复用和信号驱动IO对文件IO也是没有意义的。
 
-![2019-8-23-0](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-10-4-2.jpg)
+![2019-8-23-0](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-10-4-2.jpg)
 
 > IO多路复用模型
 
@@ -77,7 +77,7 @@ epoll是基于内核的反射机制，在有活跃的 socket 时，系统会调�
 但是也并不是所有情况下 epoll 都比 select/poll 好，比如在如下场景：
 在大多数客户端都很活跃的情况下，系统会把所有的回调函数都唤醒，所以会导致负载较高。既然要处理这么多的连接，那倒不如 select 遍历简单有效。
 
-![2019-8-23-0](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-10-4-3.jpg)
+![2019-8-23-0](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-10-4-3.jpg)
 
 > 信号驱动模型
 
@@ -85,7 +85,7 @@ epoll是基于内核的反射机制，在有活跃的 socket 时，系统会调�
 
 上文的麦当劳就餐情形，还是需要你每次都去问一下饭菜状况。于是，你再次不耐烦了，就跟老板说，哪个饭菜好了就通知我一声吧。然后就自己坐在桌子那里干自己的事情。或者，你可以把手机号留给老板，自己出门，等饭菜好了直接发条短信给你。这就类似信号驱动的IO模型。
 
-![2019-8-23-0](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-10-4-4.jpg)
+![2019-8-23-0](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-10-4-4.jpg)
 
 > 异步非阻塞
 
@@ -93,7 +93,7 @@ epoll是基于内核的反射机制，在有活跃的 socket 时，系统会调�
 
 之前的就餐方式，到最后总是需要你自己去把饭菜端到餐桌。这下你也觉得不耐烦了，于是就告诉老板，能不能饭好了直接端到你的面前或者送到你的家里(外卖)。这就是异步非阻塞IO了。
 
-![2019-8-23-0](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-10-4-5.jpg)
+![2019-8-23-0](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-10-4-5.jpg)
 
 <u>异步IO和信号驱动的主要区别，在于：信号驱动由内核告诉我们何时可以开始一个IO操作(数据在内核缓冲区中)，而异步IO则由内核通知IO操作何时已经完成(数据已经在用户空间中)。</u>
 

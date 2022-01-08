@@ -21,7 +21,7 @@ cover: >-
 
 [https://github.com/hanyuancheung/HoloLens-Development](https://github.com/hanyuancheung/HoloLens-Development)
 
-![2019-8-23-0](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-0.jpg)
+![2019-8-23-0](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-0.jpg)
 
 
 

@@ -23,7 +23,7 @@ cover: >-
 
 **注意区分**：进程和进程实体：进程是动态的，进程实体是静态的
 
-![OS-2](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-2.png)
+![OS-2](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-2.png)
 
 
 
@@ -62,11 +62,11 @@ PCB中应包括：1、进程标识信息：本进程的标识、父进程的标�
 
 #### 进程的特征
 
-![OS-4](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-4.png)
+![OS-4](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-4.png)
 
 ### 对这块小结下：
 
-![OS-5](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-5.png)
+![OS-5](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-5.png)
 
 ## 二、进程的状态与转换
 
@@ -86,7 +86,7 @@ PCB中应包括：1、进程标识信息：本进程的标识、父进程的标�
 
 5. 终止态：进程正在撤销，OS回收其资源，撤销PC（或者是由于bug导致进程无法继续执行，需进行撤销）
 
-![OS-6](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-6.png)
+![OS-6](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-6.png)
 
 > 注意以下内容:
 
@@ -98,7 +98,7 @@ PCB中应包括：1、进程标识信息：本进程的标识、父进程的标�
 
 ### 本章小节：
 
-![OS-7](https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-7.png)
+![OS-7](https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/OS-7.png)
 
 #### $$ Question：进程创建的主要工作是什么？
 
