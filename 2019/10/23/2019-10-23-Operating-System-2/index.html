@@ -228,7 +228,7 @@
 <p>进程实体 = 程序段 + 数据段 + PCB(进程控制块)</p>
 </blockquote>
 <p><strong>注意区分</strong>：进程和进程实体：进程是动态的，进程实体是静态的</p>
-<p><img src="http://csuzhang.info/photos/OS-2.png" alt="OS-2"></p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-2.png" alt="OS-2"></p>
 <h4 id="PCB-进程管理块"><a href="#PCB-进程管理块" class="headerlink" title="PCB(进程管理块):"></a>PCB(进程管理块):</h4><p>为了描述控制进程的运行，系统中存放进程的管理和控制信息的数据结构称为进程控制块（Process Control Block）。它是进程实体的一部分，<strong>1.是操作系统中最重要的记录性数据结构</strong>。它是<strong>2.进程管理和控制的最重要的数据结构</strong>，每一个进程均有一个PCB，在创建进程时，建立PCB，伴随进程运行的全过程，直到进程撤消而撤消。所谓的创建进程和撤销进程，都是指对 PCB 的操作。</p>
 <p>程序段: 存放执行的代码；</p>
 <p>数据段: 存放程序运行过程中处理的各种数据；</p>
@@ -244,8 +244,8 @@
 </li>
 </ol>
 <p><strong>一个系统中，进程成百上千，必须选择合适的合适的方式进行有效的管理。</strong></p>
-<h4 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h4><p><img src="http://csuzhang.info/photos/OS-4.png" alt="OS-4"></p>
-<h3 id="对这块小结下："><a href="#对这块小结下：" class="headerlink" title="对这块小结下："></a>对这块小结下：</h3><p><img src="http://csuzhang.info/photos/OS-5.png" alt="OS-5"></p>
+<h4 id="进程的特征"><a href="#进程的特征" class="headerlink" title="进程的特征"></a>进程的特征</h4><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-4.png" alt="OS-4"></p>
+<h3 id="对这块小结下："><a href="#对这块小结下：" class="headerlink" title="对这块小结下："></a>对这块小结下：</h3><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-5.png" alt="OS-5"></p>
 <h2 id="二、进程的状态与转换"><a href="#二、进程的状态与转换" class="headerlink" title="二、进程的状态与转换"></a>二、进程的状态与转换</h2><h4 id="进程的5种状态"><a href="#进程的5种状态" class="headerlink" title="进程的5种状态"></a>进程的5种状态</h4><p><strong>3种基本状态：</strong></p>
 <ol>
 <li><p>运行态：占有CPU，并正在运行的进程</p>
@@ -262,7 +262,7 @@
 <li><p>终止态：进程正在撤销，OS回收其资源，撤销PC（或者是由于bug导致进程无法继续执行，需进行撤销）</p>
 </li>
 </ol>
-<p><img src="http://csuzhang.info/photos/OS-6.png" alt="OS-6"></p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-6.png" alt="OS-6"></p>
 <blockquote>
 <p>注意以下内容:</p>
 </blockquote>
@@ -274,7 +274,7 @@
 <li><p>进程只能自己阻塞自己，因为只有进程自身才知道何时需要等待某种事件的发生；</p>
 </li>
 </ol>
-<h3 id="本章小节："><a href="#本章小节：" class="headerlink" title="本章小节："></a>本章小节：</h3><p><img src="http://csuzhang.info/photos/OS-7.png" alt="OS-7"></p>
+<h3 id="本章小节："><a href="#本章小节：" class="headerlink" title="本章小节："></a>本章小节：</h3><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-7.png" alt="OS-7"></p>
 <h4 id="Question：进程创建的主要工作是什么？"><a href="#Question：进程创建的主要工作是什么？" class="headerlink" title="$$ Question：进程创建的主要工作是什么？"></a>$$ Question：进程创建的主要工作是什么？</h4><ol>
 <li>接收进程运行现场初始值，初始优先级、执行程序描述，其它资源等参数。</li>
 <li>请求分配进程描述块PCB空间，得到一个内部数字进程标识。 </li>
@@ -355,21 +355,16 @@
                     </p>
                 
                 
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://example.com/2019/10/23/2019-10-23-Operating-System-2/">http://example.com/2019/10/23/2019-10-23-Operating-System-2/</a></span>
-                    </p>
-                
                 
                     <p class="copyright-item">
                         <span>License:</span>
-                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                        <span>Copyright (c) 2021 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
                 
                      <p class="copyright-item">
                          <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                         <span>Keep Eyes & Ears Open.</span>
                      </p>
                 
 

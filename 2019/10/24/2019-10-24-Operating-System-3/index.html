@@ -224,7 +224,7 @@
 <blockquote>
 <p>三种通信方式: 共享存储、 管道通信、消息传递</p>
 </blockquote>
-<h4 id="共享存储"><a href="#共享存储" class="headerlink" title="共享存储"></a>共享存储</h4><p><img src="http://csuzhang.info/photos/OS-8.png" alt="OS-8"></p>
+<h4 id="共享存储"><a href="#共享存储" class="headerlink" title="共享存储"></a>共享存储</h4><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-8.png" alt="OS-8"></p>
 <p>设置一个共享空间，进程间互斥的进行访问；</p>
 <p>分为：</p>
 <ol>
@@ -236,7 +236,7 @@
 <h4 id="管道通信pipe"><a href="#管道通信pipe" class="headerlink" title="管道通信pipe"></a>管道通信pipe</h4><blockquote>
 <p>主要用于父子进程间通信</p>
 </blockquote>
-<p><img src="http://csuzhang.info/photos/OS-9.png" alt="OS-9"></p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-9.png" alt="OS-9"></p>
 <p>“管道”指用于连接读写进程的共享文件，称为pipe文件（内存中开辟固定大小的缓冲区）</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> testPipe() throws IOException &#123;</span><br><span class="line">    <span class="comment">// 1、获取通道</span></span><br><span class="line">    Pipe pipe = Pipe.open();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、获取sink管道，用来传送数据</span></span><br><span class="line">    Pipe.SinkChannel sinkChannel = pipe.sink();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、申请一定大小的缓冲区</span></span><br><span class="line">    ByteBuffer byteBuffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">    byteBuffer.put(<span class="string">&quot;123232142345234&quot;</span>.getBytes());</span><br><span class="line">    byteBuffer.flip();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4、sink发送数据</span></span><br><span class="line">    sinkChannel.write(byteBuffer);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5、创建接收pipe数据的source管道</span></span><br><span class="line">    Pipe.SourceChannel sourceChannel = pipe.source();</span><br><span class="line">    <span class="comment">// 6、接收数据，并保存到缓冲区中</span></span><br><span class="line">    ByteBuffer byteBuffer2 = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">    byteBuffer2.flip();</span><br><span class="line">    <span class="keyword">int</span> length = sourceChannel.read(byteBuffer2);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="keyword">new</span> <span class="keyword">String</span>(byteBuffer2.<span class="keyword">array</span>(), <span class="number">0</span>, length));</span><br><span class="line"></span><br><span class="line">    sourceChannel.close();</span><br><span class="line">    sinkChannel.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -251,7 +251,7 @@
 <li><p>pipe写满时，write()系统调用被阻塞，等待读进程将数据取走后，管道变空，read()被阻塞</p>
 </li>
 </ol>
-<h4 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h4><p><img src="http://csuzhang.info/photos/OS-10.png" alt="OS-10"></p>
+<h4 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h4><p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-10.png" alt="OS-10"></p>
 <p>数据交换以格式化消息Message为单位，通过OS的“发送/接收消息”的原语进行</p>
 <p><strong>消息 = 消息头 + 消息体</strong><br>（消息头：发送ID、接收ID、消息类型、长度）</p>
 <h2 id="五、多线程概念模型"><a href="#五、多线程概念模型" class="headerlink" title="五、多线程概念模型"></a>五、多线程概念模型</h2><p>引入线程的目的：提高并发度</p>
@@ -285,7 +285,7 @@
 </blockquote>
 <p>克服了多对一模型并发度不高的缺点，克服了一对一模型中每个用户进程占用太多资源的缺点</p>
 <p>通过下图进行小节下：</p>
-<p><img src="http://csuzhang.info/photos/OS-11.png" alt="OS-11"></p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-11.png" alt="OS-11"></p>
 <h2 id="六、CPU的调度"><a href="#六、CPU的调度" class="headerlink" title="六、CPU的调度"></a>六、CPU的调度</h2><p>从就绪队列中按照一定的算法选择一个进程并将CPU时间分配给他调度，实现进程的并发</p>
 <p><strong>三种调度:高级调度(作业调度)、中级调度(内存调度)、低级调度(进程调度)</strong></p>
 <blockquote>
@@ -300,7 +300,7 @@
 <p>低级调度<br>最基本的一种调度</p>
 </blockquote>
 <p>按照某种策略或方法，从就绪队列中选取一个进程分配CPU时间，<strong>调用的频率很高</strong></p>
-<p><img src="http://csuzhang.info/photos/OS-12.png" alt="OS-12"></p>
+<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/OS-12.png" alt="OS-12"></p>
 
         </div>
 
@@ -313,21 +313,16 @@
                     </p>
                 
                 
-                    <p class="copyright-item">
-                        <span>Permalink:</span>
-                        <span><a href="http://example.com/2019/10/24/2019-10-24-Operating-System-3/">http://example.com/2019/10/24/2019-10-24-Operating-System-3/</a></span>
-                    </p>
-                
                 
                     <p class="copyright-item">
                         <span>License:</span>
-                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                        <span>Copyright (c) 2021 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
                 
                      <p class="copyright-item">
                          <span>Slogan:</span>
-                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                         <span>Keep Eyes & Ears Open.</span>
                      </p>
                 
 
