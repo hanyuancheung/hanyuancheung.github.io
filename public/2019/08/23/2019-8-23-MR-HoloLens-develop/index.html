@@ -262,30 +262,30 @@
 <p>对于macOS系统，我z找遍了网上所有说mac可以做开发的博客，并最终总结出：mac开发b需要装双系统或者虚拟机，其实还是逃不开windows10系统，所以劝你还是乖乖认命吧。</p>
 </blockquote>
 <h3 id="Visual-Studio配置"><a href="#Visual-Studio配置" class="headerlink" title="Visual Studio配置"></a>Visual Studio配置</h3><p>Visual Studio的配置是否正确决定了项目能否成功从Unity中构建导出，进而设计能否在Hololens生成APP及调试。下面是团队经多次尝试后确认的正确配置所需选择的，建议大家不要轻易修改：</p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-1.png" alt="2019-8-23-1"></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-2.png" alt="2019-8-23-2"></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-3.png" alt="2019-8-23-3"></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-4.png" alt="2019-8-23-4"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-1.png" alt="2019-8-23-1"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-2.png" alt="2019-8-23-2"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-3.png" alt="2019-8-23-3"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-4.png" alt="2019-8-23-4"></p>
 <p>在进行Hololens的开发时，我们需要集成微软官方提供的 MixedRealityToolKit项目。MixedRealityToolKit ，即原来的HoloToolkit-Unity项目，简称MRTK，是微软官方的开源项目，用于帮助开发者快速开发 HoloLens 应用，能够快速为项目集成基本输入、空间映射和场景匹配等特性。</p>
 <p>关于该项目的详细介绍，可以参考MRTK官方说明文档：<br><a target="_blank" rel="noopener" href="https://microsoft.github.io/MixedRealityToolkit-Unity/README.html">https://microsoft.github.io/MixedRealityToolkit-Unity/README.html</a></p>
 <p>在Github上下载MRTK项目代码：<br><a target="_blank" rel="noopener" href="https://github.com/microsoft/MixedRealityToolkit-Unity">https://github.com/microsoft/MixedRealityToolkit-Unity</a></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-5.png" alt="2019-8-23-5"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-5.png" alt="2019-8-23-5"></p>
 <p>将下载的ZIP解压，使用Unity以打开工程的方式打开解压得到的文件夹，右击Assets，选择Export Package，将所有MRTK前缀的包全部选上，导出得到一unitypackage格式的文件，即是后续在Unity项目中可直接导入的MRTK工具包。</p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-6.png" alt="2019-8-23-6"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-6.png" alt="2019-8-23-6"></p>
 <h3 id="Unity3d开发配置"><a href="#Unity3d开发配置" class="headerlink" title="Unity3d开发配置"></a>Unity3d开发配置</h3><p>Unity3D是进行Hololens开发的主要平台，也是我们开发VR/AR/MR等等各种Reality的主要平台，对于各种建模和3D模型对有相对较好的支持，可以让美工/设计/开发人员共同操作的开发平台，下面是配置的步骤：<br>使用Unity新建一个3D项目，由左上角选项栏沿Assets-import package-custom package途径引入上一步中导出的unitypackage文件。<br>在成功导入后选项框上会出现一个新的选项——Mixed Reality Toolkit，点击并选择Add to Scene and Configure,选择添加图中高亮的MixedRealityToolKitConfigurationProfile，随即左侧框中出现MRTK及MRPlaySpace。</p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-7.png" alt="2019-8-23-7"></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-8.png" alt="2019-8-23-8"></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-9.png" alt="2019-8-23-9"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-7.png" alt="2019-8-23-7"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-8.png" alt="2019-8-23-8"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-9.png" alt="2019-8-23-9"></p>
 <p>由于Hololens内装的是UWP版的Windows 10系统，而Unity默认创建项目运行的平台即标准版本，与之不符，因而需在左上角选项栏中沿File-Build Settings去转换平台为UWP版，相关设置更改如下图，且勿漏选，错选。（笔者使用的是Unity 2018.4.6f1版本）选好后点击Switch Platform即可。</p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-10.png" alt="2019-8-23-10"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-10.png" alt="2019-8-23-10"></p>
 <p>仍在Building Settings中点击左下角的Player Settings，在Unity右侧的Inspector中选择XR Settings，勾选其中的Virtual Reality Support 和WSA Holographic Remoting supported。</p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-11.png" alt="2019-8-23-11"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-11.png" alt="2019-8-23-11"></p>
 <p>截至此步基本配置已完成，可通过Holographic Remoting Player与设备连接，点击开始即快捷地调试已有项目。注意Holographic Remoting Player是在Hololens上安装，电脑端通过Window-XR-Holographic Emulation途径打开下面的界面，Emulation Mode 选择Remote to Device，在Hololens上打开Holographic Remoting Player后即可获取Hololens的ip地址，输入到Remote Machine中即可。</p>
 <p>详细使用方法见：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/holographic-remoting-player">https://docs.microsoft.com/zh-cn/windows/mixed-reality/holographic-remoting-player</a></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-12.png" alt="2019-8-23-12"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-12.png" alt="2019-8-23-12"></p>
 <p>强烈推荐在Windows Store（Windows自带）上下载Microsoft HoloLens，可实时获取设备第一视角的直播，及进行实时照相，录屏等功能，方便团队开发。</p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-13.png" alt="2019-8-23-13"></p>
-<p><img src="https://github.com/hanyuancheung/hanyuancheung.github.io/blob/main/source/photos/2019-8-23-14.png" alt="2019-8-23-14"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-13.png" alt="2019-8-23-13"></p>
+<p><img src="https://raw.githubusercontent.com/hanyuancheung/hanyuancheung.github.io/main/source/photos/2019-8-23-14.png" alt="2019-8-23-14"></p>
 <p>本片博客的环境配置大多是靠队友支撑起来的，因为我用的是macOS电脑，所以最后我的电脑是无法跑起来的，但是这并不影响我对项目作出自己的贡献，我主要在项目中是负责C#脚本的编写和测试。</p>
 <p>这篇博客也是从队友那边参考了一部分，这里也算是注明出处：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Brant_Stark/article/details/100043862">https://blog.csdn.net/Brant_Stark/article/details/100043862</a></p>

@@ -59,7 +59,6 @@ CNCF(Cloud-Native Computing Foundation, 云原生计算基金会) OpenTelemetry 
 * [Weibo](https://weibo.com/u/5689093900)
 * [知乎](https://www.zhihu.com/people/la-la-la-la-la-la-la-ji-9)
 * [Facebook](https://www.facebook.com/chester.cheung.3538)
-* [Twitter](https://twitter.com/ChesterCheung4)
 * [LinkedIn](https://www.linkedin.com/in/chestercheung)
 * Email：cheung.zhy.csu@gmail.com
 * QQ number：2640617395
